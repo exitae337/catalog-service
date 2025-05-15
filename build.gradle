@@ -31,6 +31,9 @@ dependencies {
     // Database
     runtimeOnly("org.postgresql:postgresql")
 
+    // Liquibase
+    implementation("org.liquibase:liquibase-core:4.31.1")
+
     // Feign client
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 

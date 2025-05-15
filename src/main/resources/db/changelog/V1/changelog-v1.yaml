@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/V1/changesets/
+      relativeToChangelogFile: true
+      filter: "*.yaml"
+      errorIfMissing: true
