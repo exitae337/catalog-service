@@ -13,14 +13,12 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: BIGINT
-                  autoIncrement: true
+                  type: uuid
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
                   name: product_id
-                  type: BIGINT
+                  type: uuid
                   constraints:
                     nullable: false
                     foreignKeyName: fk_product_image_product
@@ -33,25 +31,6 @@ databaseChangeLog:
               - column:
                   name: is_active
                   type: BOOLEAN
-                  defaultValue: true
+                  defaultValueBoolean: true
                   constraints:
                     nullable: false
-
-        - createSequence:
-            sequenceName: product_image_id_seq
-            startValue: 1
-            incrementBy: 1
-
-        - createIndex:
-            indexName: idx_product_image_product
-            tableName: product_image
-            columns:
-              - column:
-                  name: product_id
-
-        - createIndex:
-            indexName: idx_product_image_active
-            tableName: product_image
-            columns:
-              - column:
-                  name: is_active

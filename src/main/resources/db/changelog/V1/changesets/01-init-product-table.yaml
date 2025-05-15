@@ -12,62 +12,37 @@ databaseChangeLog:
             tableName: product
             columns:
               - column:
-                  autoIncrement: true
+                  name: id
+                  type: uuid
                   constraints:
                     primaryKey: true
-                    nullable: false
-                  name: id
-                  type: BIGINT
               - column:
-                  name: product_name
+                  name: name
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
               - column:
-                  name: product_price
-                  type: DECIMAL(19, 2)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: product_discount
-                  type: DECIMAL(3, 2)
+                  name: price
+                  type: numeric(11, 2)
                   constraints:
                     nullable: false
               - column:
                   name: category_id
-                  type: BIGINT
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
               - column:
                   name: created_at
                   type: TIMESTAMP
                   defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
               - column:
                   name: modified_at
                   type: TIMESTAMP
-                  defaultValueComputed: CURRENT_TIMESTAMP
               - column:
                   name: is_active
                   type: BOOLEAN
-                  defaultValue: true
+                  defaultValueBoolean: true
                   constraints:
                     nullable: false
-
-        - createSequence:
-            sequenceName: product_id_seq
-            startValue: 1
-            incrementBy: 1
-
-        - createIndex:
-            indexName: idx_product_category
-            tableName: product
-            columns:
-              - column:
-                name: category_id
-
-        - createIndex:
-            indexName: idx_product_active
-            tableName: product
-            columns:
-              - column:
-                name: is_active
