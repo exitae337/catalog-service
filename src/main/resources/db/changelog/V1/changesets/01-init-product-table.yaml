@@ -40,6 +40,8 @@ databaseChangeLog:
               - column:
                   name: modified_at
                   type: TIMESTAMP
+                  constraints:
+                    nullable: false
               - column:
                   name: is_active
                   type: BOOLEAN
