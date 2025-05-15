@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-product-image-table
+      author: github.com/exitae337
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: product_image
+      changes:
+        - createTable:
+            tableName: product_image
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_product_image_product
+                    references: product(id)
+              - column:
+                  name: image_url
+                  type: VARCHAR(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active
+                  type: BOOLEAN
+                  defaultValue: true
+                  constraints:
+                    nullable: false
+
+        - createSequence:
+            sequenceName: product_image_id_seq
+            startValue: 1
+            incrementBy: 1
+
+        - createIndex:
+            indexName: idx_product_image_product
+            tableName: product_image
+            columns:
+              - column:
+                  name: product_id
+
+        - createIndex:
+            indexName: idx_product_image_active
+            tableName: product_image
+            columns:
+              - column:
+                  name: is_active

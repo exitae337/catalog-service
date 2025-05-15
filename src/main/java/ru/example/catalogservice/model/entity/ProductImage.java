@@ -2,55 +2,33 @@ package ru.example.catalogservice.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "product")
+@Table(name = "product_image")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Builder
-public class Product {
+public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
 
-    @Column(name = "product_name", nullable = false)
-    private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
-    @Column(name = "product_price", nullable = false)
-    private BigDecimal price;
-
-    @Column(name = "product_discount", nullable = false)
-    private BigDecimal discount;
-
-    @Column(name = "category_id", nullable = false)
-    private Long categoryId;
-
-    @Column(name = "created_at", nullable = false, updatable = false)
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
-    @Column(name = "modified_at", nullable = false)
-    @UpdateTimestamp
-    private LocalDateTime modifiedAt;
+    @Column(name = "image_url", nullable = false, length = 512)
+    private String imageUrl;
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
-
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<ProductImage> images = new ArrayList<>();
 
     @Override
     public final boolean equals(Object o) {
@@ -59,7 +37,7 @@ public class Product {
         Class<?> oEffectiveClass = o instanceof HibernateProxy proxy ? proxy.getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy proxy ? proxy.getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Product that = (Product) o;
+        ProductImage that = (ProductImage) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

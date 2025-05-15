@@ -4,11 +4,12 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.example.catalogservice.model.payload.CreateProductRequest;
-import ru.example.catalogservice.model.payload.ProductResponse;
+import ru.example.catalogservice.model.payload.product.CreateProductRequest;
+import ru.example.catalogservice.model.payload.product.ProductResponse;
 import ru.example.catalogservice.service.ProductService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
@@ -24,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ProductResponse getProductById(@PathVariable Long id) {
+    public ProductResponse getProductById(@PathVariable UUID id) {
         return productService.getProductById(id);
     }
 

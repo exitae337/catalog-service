@@ -1,6 +1,7 @@
 databaseChangeLog:
-  - includeAll:
-      path: db/changelog/V1/changesets/
+  - include:
+      file: db/changelog/V1/changesets/01-init-product-table.yaml
       relativeToChangelogFile: true
-      filter: "*.yaml"
-      errorIfMissing: true
+  - include:
+      file: db/changelog/V1/changesets/02-init-product-image-table.yaml
+      relativeToChangelogFile: true
