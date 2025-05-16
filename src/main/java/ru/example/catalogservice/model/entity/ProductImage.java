@@ -39,8 +39,8 @@ public class ProductImage {
     @ToString.Exclude
     private Product product;
 
-    @Column(name = "image_url", nullable = false, length = 512)
-    private String imageUrl;
+    @Column(name = "file_name", nullable = false, length = 512)
+    private String fileName;
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
