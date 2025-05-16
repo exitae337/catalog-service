@@ -2,7 +2,6 @@ package ru.example.catalogservice.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +16,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -30,7 +28,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Builder
-@EntityListeners(AuditingEntityListener.class)
 public class ProductImage {
 
     @Id
