@@ -1,13 +1,25 @@
 package ru.example.catalogservice.model.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,34 +34,33 @@ import java.util.UUID;
 @ToString
 @Builder
 public class Product {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "product_name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "product_price", nullable = false)
+    @Column(name = "price", nullable = false)
     private BigDecimal price;
 
-    @Column(name = "product_discount", nullable = false)
-    private BigDecimal discount;
-
     @Column(name = "category_id", nullable = false)
-    private Long categoryId;
+    private String categoryId;
 
     @Column(name = "created_at", nullable = false, updatable = false)
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+    @CreatedDate
+    private Instant createdAt;
 
     @Column(name = "modified_at", nullable = false)
-    @UpdateTimestamp
-    private LocalDateTime modifiedAt;
+    @LastModifiedDate
+    private Instant modifiedAt;
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<ProductImage> images = new ArrayList<>();
 
     @Override
