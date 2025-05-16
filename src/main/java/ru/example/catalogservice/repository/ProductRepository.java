@@ -1,13 +1,14 @@
 package ru.example.catalogservice.repository;
 
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import ru.example.catalogservice.model.entity.Product;
 
 import java.util.List;
 import java.util.UUID;
 
-@Repository
 public interface ProductRepository extends JpaRepository<Product, UUID> {
-    List<Product> findByCategoryId(Long categoryId);
+
+    @EntityGraph(attributePaths = "images")
+    List<Product> findByCategoryId(String categoryId);
 }
