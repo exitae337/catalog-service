@@ -24,7 +24,7 @@ databaseChangeLog:
                     foreignKeyName: fk_product_image_product
                     references: product(id)
               - column:
-                  name: image_url
+                  name: file_name
                   type: VARCHAR(512)
                   constraints:
                     nullable: false
