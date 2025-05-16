@@ -1,13 +1,21 @@
 package ru.example.catalogservice.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import ru.example.catalogservice.model.payload.product.CreateProductRequest;
-import ru.example.catalogservice.model.payload.product.ProductResponse;
+import ru.example.catalogservice.model.payload.product.ProductPayload;
 import ru.example.catalogservice.service.ProductService;
 
+import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,20 +26,20 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ProductResponse createProduct(@RequestBody @Valid CreateProductRequest productRequest) {
-        return productService.createProduct(productRequest);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Void> createProduct(@RequestPart("body") CreateProductRequest productRequest,
+                                              @RequestPart("images") List<MultipartFile> images) {
+        UUID createdProductId = productService.createProduct(productRequest, images);
+        return ResponseEntity.created(URI.create("/products/" + createdProductId)).build();
     }
 
     @GetMapping("/{id}")
-    public ProductResponse getProductById(@PathVariable UUID id) {
+    public ProductPayload getProductById(@PathVariable("id") UUID id) {
         return productService.getProductById(id);
     }
 
     @GetMapping
-    public List<ProductResponse> getProductsByCategoryId(@RequestParam Long categoryId) {
+    public List<ProductPayload> getProductsByCategoryId(@RequestParam("category") String categoryId) {
         return productService.getProductsByCategoryId(categoryId);
     }
-
 }
