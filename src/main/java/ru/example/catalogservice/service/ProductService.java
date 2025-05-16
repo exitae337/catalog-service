@@ -2,57 +2,64 @@ package ru.example.catalogservice.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import ru.example.catalogservice.model.entity.ProductImage;
-import ru.example.catalogservice.model.event.product.ProductEvent;
-import ru.example.catalogservice.model.event.product.ProductEventFactory;
-import ru.example.catalogservice.model.mapper.ProductMapper;
-import ru.example.catalogservice.model.payload.product.CreateProductRequest;
-import ru.example.catalogservice.model.payload.product.ProductResponse;
+import org.springframework.web.multipart.MultipartFile;
+import ru.example.catalogservice.exception.NotFoundException;
+import ru.example.catalogservice.feign.ProductCategoryClient;
 import ru.example.catalogservice.model.entity.Product;
+import ru.example.catalogservice.model.mapper.ProductMapper;
+import ru.example.catalogservice.model.payload.kafka.NewProductEvent;
+import ru.example.catalogservice.model.payload.product.CreateProductRequest;
+import ru.example.catalogservice.model.payload.product.ProductPayload;
 import ru.example.catalogservice.repository.ProductRepository;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final KafkaTemplate<String, ProductEvent> kafkaTemplate;
+    private final ProductCategoryClient productCategoryClient;
+    private final ProductOutboxService productOutboxService;
+    private final ProductMapper productMapper;
+    private final ProductImageService productImageService;
 
     @Transactional
-    public ProductResponse createProduct(CreateProductRequest productRequest) {
-        Product product = ProductMapper.toEntity(productRequest);
-
-        List<ProductImage> images = productRequest.imageUrls().stream()
-                .map(url -> ProductImage.builder()
-                        .product(product)
-                        .imageUrl(url)
-                        .build())
-                .toList();
-
-        product.setImages(images);
-        Product saved = productRepository.save(product);
-
-        ProductEvent event = ProductEventFactory.createEvent(saved, ProductEventFactory.EventType.CREATED);
-        kafkaTemplate.send("product-events", product.getId().toString(), event);
-
-        return ProductMapper.toResponse(saved);
+    public UUID createProduct(CreateProductRequest createProductRequest, List<MultipartFile> images) {
+        ResponseEntity<Void> categoryResponse = productCategoryClient.categoryExists(createProductRequest.categoryId());
+        if (categoryResponse.getStatusCode().is2xxSuccessful()) {
+            Product product = productRepository.save(Product.builder()
+                    .name(createProductRequest.name())
+                    .price(createProductRequest.price())
+                    .categoryId(createProductRequest.categoryId())
+                    .build());
+            productOutboxService.save(new NewProductEvent(product.getId(), product.getName(), product.getPrice()));
+            CompletableFuture
+                    .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
+                    .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls));
+            return product.getId();
+        }
+        throw new NotFoundException("Category with ID: '%s' not found".formatted(createProductRequest.categoryId()));
     }
 
-    public ProductResponse getProductById(UUID id) {
-        Product product = productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
-        return ProductMapper.toResponse(product);
+    public ProductPayload getProductById(UUID id) {
+        Product product = getEntityById(id);
+        return productMapper.mapToProductPayload(product, productImageService.getImagesUrls(product.getImages()));
     }
 
-    public List<ProductResponse> getProductsByCategoryId(Long categoryId) {
+    public List<ProductPayload> getProductsByCategoryId(String categoryId) {
         return productRepository.findByCategoryId(categoryId).stream()
-                .map(ProductMapper::toResponse)
+                .map(product -> productMapper.mapToProductPayload(product, productImageService.getImagesUrls(product.getImages())))
                 .toList();
     }
 
+    public Product getEntityById(UUID id) {
+        return productRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Product with ID: '%s' not found".formatted(id))
+        );
+    }
 }
