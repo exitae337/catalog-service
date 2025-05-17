@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.example.catalogservice.model.entity.ProductOutbox;
 import ru.example.catalogservice.model.payload.kafka.NewProductEvent;
+import ru.example.catalogservice.model.payload.kafka.enums.ProductOutboxStatus;
 import ru.example.catalogservice.repository.ProductOutboxRepository;
 
 import java.util.UUID;
@@ -16,6 +17,7 @@ public class ProductOutboxService {
 
     public void save(NewProductEvent event) {
         productOutboxRepository.save(ProductOutbox.builder()
+                .status(ProductOutboxStatus.CREATED)
                 .productId(event.id())
                 .payload(event)
                 .build());
