@@ -59,9 +59,11 @@ public class Product {
     @LastModifiedDate
     private Instant modifiedAt;
 
+    @Builder.Default
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
 
+    @Builder.Default
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<ProductImage> images = new ArrayList<>();
