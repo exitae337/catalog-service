@@ -1,7 +1,7 @@
 databaseChangeLog:
   - include:
       file: db/changelog/V1/changesets/01-init-product-table.yaml
-      relativeToChangelogFile: true
   - include:
       file: db/changelog/V1/changesets/02-init-product-image-table.yaml
-      relativeToChangelogFile: true
+  - include:
+      file: db/changelog/V1/changesets/03-init-outbox-table.yaml
