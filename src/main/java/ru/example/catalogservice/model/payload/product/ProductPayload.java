@@ -8,7 +8,7 @@ public record ProductPayload(
         UUID id,
         String name,
         BigDecimal price,
-        Long categoryId,
+        String categoryId,
         List<String> images
 ) {
 }
