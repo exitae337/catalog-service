@@ -2,6 +2,8 @@ package ru.example.catalogservice.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,6 +30,7 @@ public class ProductService {
     private final ProductMapper productMapper;
     private final ProductImageService productImageService;
 
+    @CacheEvict(value = "products_with_category", key = "#createProductRequest.categoryId()")
     @Transactional
     public UUID createProduct(CreateProductRequest createProductRequest, List<MultipartFile> images) {
         ResponseEntity<Void> categoryResponse = productCategoryClient.categoryExists(createProductRequest.categoryId());
@@ -48,11 +51,13 @@ public class ProductService {
         throw new NotFoundException("Category with ID: '%s' not found".formatted(createProductRequest.categoryId()));
     }
 
+    @Cacheable(value = "products", key = "#id")
     public ProductPayload getProductById(UUID id) {
         Product product = getEntityById(id);
         return productMapper.mapToProductPayload(product, productImageService.getImagesUrls(product.getImages()));
     }
 
+    @Cacheable(value = "products_with_category", key = "#categoryId")
     public List<ProductPayload> getProductsByCategoryId(String categoryId) {
         return productRepository.findByCategoryId(categoryId).stream()
                 .map(product -> productMapper.mapToProductPayload(product, productImageService.getImagesUrls(product.getImages())))
