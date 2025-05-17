@@ -65,3 +65,5 @@ dependencyManagement {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.bootJar.archiveFileName = "catalog-service.jar"
