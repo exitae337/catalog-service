@@ -28,7 +28,7 @@ public class ProductController {
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> createProduct(@RequestPart("body") CreateProductRequest productRequest,
-                                              @RequestPart("images") List<MultipartFile> images) {
+                                              @RequestPart(value = "images", required = false) List<MultipartFile> images) {
         UUID createdProductId = productService.createProduct(productRequest, images);
         return ResponseEntity.created(URI.create("/products/" + createdProductId)).build();
     }

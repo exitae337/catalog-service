@@ -38,9 +38,11 @@ public class ProductService {
                     .categoryId(createProductRequest.categoryId())
                     .build());
             productOutboxService.save(new NewProductEvent(product.getId(), product.getName(), product.getPrice()));
-            CompletableFuture
-                    .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
-                    .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls));
+            if (images != null) {
+                CompletableFuture
+                        .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
+                        .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls));
+            }
             return product.getId();
         }
         throw new NotFoundException("Category with ID: '%s' not found".formatted(createProductRequest.categoryId()));
