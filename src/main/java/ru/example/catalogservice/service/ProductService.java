@@ -40,7 +40,7 @@ public class ProductService {
                     .price(createProductRequest.price())
                     .categoryId(createProductRequest.categoryId())
                     .build());
-            productOutboxService.save(new NewProductEvent(product.getId(), product.getName(), product.getPrice()));
+            productOutboxService.createEvent(new NewProductEvent(product.getId(), product.getName(), product.getPrice()));
             if (images != null) {
                 CompletableFuture
                         .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
