@@ -3,12 +3,15 @@ package ru.example.catalogservice.model.entity;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,9 +20,13 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.Type;
 import org.hibernate.proxy.HibernateProxy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.example.catalogservice.model.payload.kafka.NewProductEvent;
 import ru.example.catalogservice.model.payload.kafka.enums.ProductOutboxStatus;
 
+import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -31,6 +38,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Builder
+@EntityListeners(AuditingEntityListener.class)
 public class ProductOutbox {
 
     @Id
@@ -47,6 +55,17 @@ public class ProductOutbox {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private ProductOutboxStatus status;
+
+    @Builder.Default
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", nullable = false)
+    private Instant createdAt = Instant.now();
+
+    @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated_at", nullable = false)
+    private Instant updatedAt;
 
     @Override
     public final boolean equals(Object o) {
