@@ -1,11 +1,13 @@
 package ru.example.catalogservice.service;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.multipart.MultipartFile;
 import ru.example.catalogservice.exception.NotFoundException;
 import ru.example.catalogservice.feign.ProductCategoryClient;
@@ -22,6 +24,7 @@ import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
+@Validated
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -32,7 +35,7 @@ public class ProductService {
 
     @CacheEvict(value = "products_with_category", key = "#createProductRequest.categoryId()")
     @Transactional
-    public UUID createProduct(CreateProductRequest createProductRequest, List<MultipartFile> images) {
+    public UUID createProduct(@Valid CreateProductRequest createProductRequest, List<MultipartFile> images) {
         ResponseEntity<Void> categoryResponse = productCategoryClient.categoryExists(createProductRequest.categoryId());
         if (categoryResponse.getStatusCode().is2xxSuccessful()) {
             Product product = productRepository.save(Product.builder()
@@ -41,7 +44,7 @@ public class ProductService {
                     .categoryId(createProductRequest.categoryId())
                     .build());
             productOutboxService.createEvent(new NewProductEvent(product.getId(), product.getName(), product.getPrice()));
-            if (images != null) {
+            if (images != null && !images.isEmpty()) {
                 CompletableFuture
                         .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
                         .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls));
