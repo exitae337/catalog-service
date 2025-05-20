@@ -8,7 +8,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0001')
+                  value: "f3a7d9b2-1c4e-4f8a-9b6d-2e5c7a1f0b3e"
               - column:
                   name: name
                   value: Смартфон Galaxy S23
@@ -23,7 +23,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0002')
+                  value: "c8e2b4f7-6a9d-4b3c-8f5e-1d7a0c2e9f4b"
               - column:
                   name: name
                   value: Смартфон iPhone 14
@@ -38,7 +38,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0003')
+                  value: "a1d6c3e8-2f7b-4e9d-0a4f-3c8b1e5d2a6c"
               - column:
                   name: name
                   value: Смартфон Pixel 7
@@ -53,7 +53,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0004')
+                  value: "e9b3f0a5-7d2c-4a1e-8c6b-4f9d2a7e1b5d"
               - column:
                   name: name
                   value: Смартфон Xiaomi 13
@@ -72,7 +72,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0005')
+                  value: "b2f8d1c6-3e9a-4f2b-9d7c-5a0e3b8f2c6e"
               - column:
                   name: name
                   value: Ноутбук MacBook Air
@@ -87,7 +87,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0006')
+                  value: "d7a4e2b9-8c1f-4b3d-0e8a-6b1f4c9a3d7f"
               - column:
                   name: name
                   value: Ноутбук Dell XPS 13
@@ -102,7 +102,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0007')
+                  value: "f0c9b5a2-4d6e-4a8c-1f9b-7c2a5d0b4e8a"
               - column:
                   name: name
                   value: Ноутбук Lenovo ThinkPad
@@ -117,7 +117,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0008')
+                  value: "a6e1d8c3-9f2b-4e0a-2a0c-8d3b6e1c5f9b"
               - column:
                   name: name
                   value: Ноутбук HP Spectre
@@ -136,7 +136,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0009')
+                  value: "c4f9a7b1-2e8d-4c1f-3b1d-9e4c7f2d6a0c"
               - column:
                   name: name
                   value: ПК iMac 24
@@ -151,7 +151,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0010')
+                  value: "e2b6c8d4-7a3f-4d9e-4c2e-0f5d8a3e7b1d"
               - column:
                   name: name
                   value: ПК Dell OptiPlex
@@ -166,7 +166,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0011')
+                  value: "b8d3e0a5-1f9c-4b2a-5d3f-1a6e9b4f8c2e"
               - column:
                   name: name
                   value: ПК HP Pavilion
@@ -181,7 +181,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0012')
+                  value: "f1a9c2b6-6e4d-4f8b-6e4a-2b7f0c5a9d3f"
               - column:
                   name: name
                   value: ПК ASUS ROG
@@ -200,7 +200,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0013')
+                  value: "d5c0e3a7-2b9f-4a1c-7f5b-3c8a1d6b0e4a"
               - column:
                   name: name
                   value: Наушники AirPods Pro
@@ -215,7 +215,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0014')
+                  value: "a7e2b4c8-8d1a-4f3e-8a6c-4d9b2e7c1f5b"
               - column:
                   name: name
                   value: Наушники Sony WH-1000XM5
@@ -230,7 +230,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0015')
+                  value: "c9f4a5d9-3e2b-4c0f-9b7d-5e0c3f8d2a6c"
               - column:
                   name: name
                   value: Наушники Bose QC45
@@ -245,7 +245,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0016')
+                  value: "e1b6c7e0-9f3c-4d2a-0c8e-6f1d4a9e3b7d"
               - column:
                   name: name
                   value: Наушники JBL Live
@@ -264,7 +264,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0017')
+                  value: "b3d8e9f1-4a0d-4f5b-1d9f-7a2e5b0f4c8e"
               - column:
                   name: name
                   value: Планшет iPad Air
@@ -279,7 +279,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0018')
+                  value: "f5a0b2c7-0e6f-4b8c-2e0a-8b3f6c1a5d9f"
               - column:
                   name: name
                   value: Планшет Samsung Galaxy Tab
@@ -294,7 +294,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0019')
+                  value: "a8c2d4e9-5f1a-4c9d-3f1b-9c4a7d2b6e0a"
               - column:
                   name: name
                   value: Планшет Lenovo Tab
@@ -309,7 +309,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0020')
+                  value: "d0e6f8b1-1a2c-4e0f-4a2c-0d5b8e3c7f1b"
               - column:
                   name: name
                   value: Планшет Huawei MatePad
@@ -328,7 +328,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0021')
+                  value: "c7f9a3d2-6b3e-4f2a-5b3d-1e6c9f4d8a2c"
               - column:
                   name: name
                   value: Куртка зимняя Columbia
@@ -343,7 +343,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0022')
+                  value: "e2b5c0f4-2d9a-4c1b-6c4e-2f7d0a5e9b3d"
               - column:
                   name: name
                   value: Пальто шерстяное Zara
@@ -358,7 +358,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0023')
+                  value: "a9d1e7b6-8f0c-4e3d-7d5f-3a8e1b6f0c4e"
               - column:
                   name: name
                   value: Пуховик The North Face
@@ -373,7 +373,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0024')
+                  value: "f4a2c8e9-3b1e-4a0f-8e6a-4b9f2c7a1d5f"
               - column:
                   name: name
                   value: Ветровка Nike
@@ -392,7 +392,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0025')
+                  value: "b6e3d0a1-9c2f-4f5b-9f7b-5c0a3d8b2e6a"
               - column:
                   name: name
                   value: Комплект белья Calvin Klein
@@ -407,7 +407,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0026')
+                  value: "d8f5a2c3-4e0a-4b7c-0a8c-6d1b4e9c3f7b"
               - column:
                   name: name
                   value: Трусы боксеры H&M
@@ -422,7 +422,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0027')
+                  value: "a0b7e4d5-0f1c-4d9e-1b9d-7e2c5f0d4a8c"
               - column:
                   name: name
                   value: Бюстгальтер Victoria's Secret
@@ -437,7 +437,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0028')
+                  value: "f2c9a6e7-5a2e-4f0a-2c0e-8f3d6a1e5b9d"
               - column:
                   name: name
                   value: Комплект белья Intimissimi
@@ -456,7 +456,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0029')
+                  value: "c4e0b8f9-1b3f-4c2d-3d1f-9a4e7b2f6c0e"
               - column:
                   name: name
                   value: Детский комбинезон Carter's
@@ -471,7 +471,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0030')
+                  value: "e6a2c0b1-7d4a-4e5f-4e2a-0b5f8c3a7d1f"
               - column:
                   name: name
                   value: Детская куртка Zara Kids
@@ -486,7 +486,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0031')
+                  value: "b8d4e2c3-2f5c-4a7b-5f3b-1c6a9d4b8e2a"
               - column:
                   name: name
                   value: Детские джинсы H&M
@@ -501,7 +501,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0032')
+                  value: "f0a6b5d4-8a6e-4f9c-6a4c-2d7b0e5c9f3b"
               - column:
                   name: name
                   value: Детское платье Gap
@@ -520,7 +520,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0033')
+                  value: "d2c8e7a5-3b7f-4d0e-7b5d-3e8c1f6d0a4c"
               - column:
                   name: name
                   value: Ботинки Timberland
@@ -535,7 +535,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0034')
+                  value: "a4e0b9c6-9d8a-4f2a-8c6e-4f9d2a7e1b5d"
               - column:
                   name: name
                   value: Ботинки Dr. Martens
@@ -550,7 +550,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0035')
+                  value: "f6a2c1d7-4e9c-4b3f-9d7f-5a0e3b8f2c6e"
               - column:
                   name: name
                   value: Ботинки Ecco
@@ -565,7 +565,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0036')
+                  value: "b8d4e3a8-0f1e-4c5a-0e8a-6b1f4c9a3d7f"
               - column:
                   name: name
                   value: Ботинки Salomon
@@ -584,7 +584,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0037')
+                  value: "e0a6b5c9-5a2f-4e7b-1f9b-7c2a5d0b4e8a"
               - column:
                   name: name
                   value: Кроссовки Nike Air Max
@@ -599,7 +599,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0038')
+                  value: "c2e8d7a0-1b3a-4f9c-2a0c-8d3b6e1c5f9b"
               - column:
                   name: name
                   value: Кроссовки Adidas Ultraboost
@@ -614,7 +614,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0039')
+                  value: "a4f0b9c1-6c4e-4d0f-3b1d-9e4c7f2d6a0c"
               - column:
                   name: name
                   value: Кроссовки New Balance 574
@@ -629,7 +629,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0040')
+                  value: "f6a2c1d2-2d5f-4e2a-4c2e-0f5d8a3e7b1d"
               - column:
                   name: name
                   value: Кроссовки Puma RS-X
@@ -648,7 +648,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0041')
+                  value: "b8d4e3a3-7e6a-4f3b-5d3f-1a6e9b4f8c2e"
               - column:
                   name: name
                   value: Рабочие ботинки Caterpillar
@@ -657,13 +657,13 @@ databaseChangeLog:
                   valueNumeric: "12990.00"
               - column:
                   name: category_id
-                  value: WORK_SHOES
+                  value: TABLETS
         - insert:
             tableName: product
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0042')
+                  value: "e0a6b5c4-3f7c-4d5e-6e4a-2b7f0c5a9d3f"
               - column:
                   name: name
                   value: Рабочие ботинки Red Wing
@@ -678,7 +678,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0043')
+                  value: "c2e8d7a5-9a8e-4f6a-7f5b-3c8a1d6b0e4a"
               - column:
                   name: name
                   value: Рабочие ботинки Skechers
@@ -693,7 +693,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0044')
+                  value: "a4f0b9c6-4b9f-4c7b-8a6c-4d9b2e7c1f5b"
               - column:
                   name: name
                   value: Рабочие ботинки Timberland Pro
@@ -712,7 +712,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0045')
+                  value: "f6a2c1d7-0c0a-4e8c-9b7d-5e0c3f8d2a6c"
               - column:
                   name: name
                   value: Картофель молодой
@@ -727,7 +727,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0046')
+                  value: "b8d4e3a8-5d1b-4f9d-0c8e-6f1d4a9e3b7d"
               - column:
                   name: name
                   value: Помидоры черри
@@ -742,7 +742,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0047')
+                  value: "e0a6b5c9-1e2c-4d0f-1d9f-7a2e5b0f4c8e"
               - column:
                   name: name
                   value: Огурцы свежие
@@ -757,7 +757,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0048')
+                  value: "c2e8d7a0-6f3e-4e1a-2e0a-8b3f6c1a5d9f"
               - column:
                   name: name
                   value: Морковь мытая
@@ -776,7 +776,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0049')
+                  value: "a4f0b9c1-2a4f-4f2b-3f1b-9c4a7d2b6e0a"
               - column:
                   name: name
                   value: Яблоки Гренни Смит
@@ -791,7 +791,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0050')
+                  value: "f6a2c1d2-7b5a-4c3d-4a2c-0d5b8e3c7f1b"
               - column:
                   name: name
                   value: Бананы спелые
@@ -806,7 +806,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0051')
+                  value: "b8d4e3a3-3c6b-4e4f-5b3d-1e6c9f4d8a2c"
               - column:
                   name: name
                   value: Апельсины сладкие
@@ -821,7 +821,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0052')
+                  value: "e0a6b5c4-8d7c-4f5a-6c4e-2f7d0a5e9b3d"
               - column:
                   name: name
                   value: Виноград красный
@@ -840,7 +840,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0053')
+                  value: "c2e8d7a5-4e8e-4d6b-7d5f-3a8e1b6f0c4e"
               - column:
                   name: name
                   value: Вода минеральная Боржоми
@@ -855,7 +855,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0054')
+                  value: "a4f0b9c6-9f9f-4e7c-8e6a-4b9f2c7a1d5f"
               - column:
                   name: name
                   value: Сок яблочный Добрый
@@ -870,7 +870,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0055')
+                  value: "f6a2c1d7-5a0a-4f8d-9f7b-5c0a3d8b2e6a"
               - column:
                   name: name
                   value: Кола Coca-Cola
@@ -885,7 +885,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0056')
+                  value: "b8d4e3a8-0b1b-4d9f-0a8c-6d1b4e9c3f7b"
               - column:
                   name: name
                   value: Чай зеленый Lipton
@@ -904,7 +904,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0057')
+                  value: "e0a6b5c9-6c2c-4e0a-1b9d-7e2c5f0d4a8c"
               - column:
                   name: name
                   value: Круассан с шоколадом
@@ -919,7 +919,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0058')
+                  value: "c2e8d7a0-1d3e-4f1b-2c0e-8f3d6a1e5b9d"
               - column:
                   name: name
                   value: Пирожное эклер
@@ -934,7 +934,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0059')
+                  value: "a4f0b9c1-7e4f-4d2c-3d1f-9a4e7b2f6c0e"
               - column:
                   name: name
                   value: Булочка с изюмом
@@ -949,7 +949,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0060')
+                  value: "f6a2c1d2-2f5a-4e3d-4e2a-0b5f8c3a7d1f"
               - column:
                   name: name
                   value: Печенье овсяное
@@ -968,7 +968,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0061')
+                  value: "b8d4e3a3-8a6b-4f4e-5f3b-1c6a9d4b8e2a"
               - column:
                   name: name
                   value: Стол компьютерный IKEA
@@ -983,7 +983,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0062')
+                  value: "e0a6b5c4-3b7c-4d5f-6a4c-2d7b0e5c9f3b"
               - column:
                   name: name
                   value: Кресло офисное Ergonomic
@@ -998,7 +998,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0063')
+                  value: "c2e8d7a5-9c8e-4e6a-7b5d-3e8c1f6d0a4c"
               - column:
                   name: name
                   value: Полка для монитора
@@ -1013,7 +1013,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0064')
+                  value: "a4f0b9c6-4d9f-4f7b-8c6e-4f9d2a7e1b5d"
               - column:
                   name: name
                   value: Стойка для ноутбука
@@ -1032,7 +1032,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0065')
+                  value: "f6a2c1d7-0e0a-4a8c-9d7f-5a0e3b8f2c6e"
               - column:
                   name: name
                   value: Садовый стол Keter
@@ -1047,7 +1047,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0066')
+                  value: "b8d4e3a8-5f1b-4b9d-0e8a-6b1f4c9a3d7f"
               - column:
                   name: name
                   value: Садовый стул пластиковый
@@ -1062,7 +1062,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0067')
+                  value: "e0a6b5c9-1a2c-4c0f-1f9b-7c2a5d0b4e8a"
               - column:
                   name: name
                   value: Шезлонг раскладной
@@ -1077,7 +1077,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0068')
+                  value: "c2e8d7a0-6b3e-4d1a-2a0c-8d3b6e1c5f9b"
               - column:
                   name: name
                   value: Скамейка садовая деревянная
@@ -1096,7 +1096,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0069')
+                  value: "a4f0b9c1-2c4f-4e2b-3b1d-9e4c7f2d6a0c"
               - column:
                   name: name
                   value: Обеденный стол деревянный
@@ -1111,7 +1111,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0070')
+                  value: "f6a2c1d2-7d5a-4f3c-4c2e-0f5d8a3e7b1d"
               - column:
                   name: name
                   value: Стул кухонный мягкий
@@ -1126,7 +1126,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0071')
+                  value: "b8d4e3a3-3e6b-4d4e-5d3f-1a6e9b4f8c2e"
               - column:
                   name: name
                   value: Стол журнальный стеклянный
@@ -1141,7 +1141,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0072')
+                  value: "e0a6b5c4-8f7c-4e5f-6e4a-2b7f0c5a9d3f"
               - column:
                   name: name
                   value: Стул барный металлический
@@ -1160,7 +1160,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0073')
+                  value: "c2e8d7a5-4a8e-4f6a-7f5b-3c8a1d6b0e4a"
               - column:
                   name: name
                   value: Диван угловой кожаный
@@ -1175,7 +1175,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0074')
+                  value: "a4f0b9c6-9b9f-4d7b-8a6c-4d9b2e7c1f5b"
               - column:
                   name: name
                   value: Кресло мягкое тканевое
@@ -1190,7 +1190,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0075')
+                  value: "f6a2c1d7-5c0a-4e8c-9b7d-5c0a3d8b2e6a"
               - column:
                   name: name
                   value: Диван-кровать раскладной
@@ -1205,7 +1205,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0076')
+                  value: "b8d4e3a8-0d1b-4f9d-0a8c-6d1b4e9c3f7b"
               - column:
                   name: name
                   value: Пуф тканевый
@@ -1224,7 +1224,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0077')
+                  value: "e0a6b5c9-6e2c-4d0f-1b9d-7e2c5f0d4a8c"
               - column:
                   name: name
                   value: Детская кровать с бортиками
@@ -1239,7 +1239,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0078')
+                  value: "c2e8d7a0-1f3e-4e1a-2c0e-8f3d6a1e5b9d"
               - column:
                   name: name
                   value: Детский стол для рисования
@@ -1254,7 +1254,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0079')
+                  value: "a4f0b9c1-7a4f-4f2b-3d1f-9a4e7b2f6c0e"
               - column:
                   name: name
                   value: Детский стул регулируемый
@@ -1269,7 +1269,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0080')
+                  value: "f6a2c1d2-2b5a-4d3c-4e2a-0b5f8c3a7d1f"
               - column:
                   name: name
                   value: Детский шкаф для игрушек
@@ -1288,7 +1288,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0081')
+                  value: "b8d4e3a3-8c6b-4e4e-5f3b-1c6a9d4b8e2a"
               - column:
                   name: name
                   value: Набор тарелок керамических
@@ -1303,7 +1303,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0082')
+                  value: "e0a6b5c4-3d7c-4f5f-6a4c-2d7b0e5c9f3b"
               - column:
                   name: name
                   value: Набор столовых приборов
@@ -1318,7 +1318,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0083')
+                  value: "c2e8d7a5-9e8e-4d6a-7b5d-3e8c1f6d0a4c"
               - column:
                   name: name
                   value: Чайный сервиз фарфоровый
@@ -1333,7 +1333,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0084')
+                  value: "a4f0b9c6-4f9f-4e7b-8c6e-4f9d2a7e1b5d"
               - column:
                   name: name
                   value: Набор бокалов для вина
@@ -1352,7 +1352,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0085')
+                  value: "f6a2c1d7-0a0a-4f8c-9d7f-5a0e3b8f2c6e"
               - column:
                   name: name
                   value: Лопата садовая Fiskars
@@ -1367,7 +1367,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0086')
+                  value: "b8d4e3a8-5b1b-4d9d-0e8a-6b1f4c9a3d7f"
               - column:
                   name: name
                   value: Секатор садовый
@@ -1382,7 +1382,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0087')
+                  value: "e0a6b5c9-1c2c-4e0f-1f9b-7c2a5d0b4e8a"
               - column:
                   name: name
                   value: Шланг поливочный 20 м
@@ -1397,7 +1397,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0088')
+                  value: "c2e8d7a0-6d3e-4f1a-2a0c-8d3b6e1c5f9b"
               - column:
                   name: name
                   value: Грабли садовые металлические
@@ -1416,7 +1416,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0089')
+                  value: "a4f0b9c1-2e4f-4d2b-3b1d-9e4c7f2d6a0c"
               - column:
                   name: name
                   value: Ваза декоративная керамическая
@@ -1431,7 +1431,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0090')
+                  value: "f6a2c1d2-7f5a-4e3c-4c2e-0f5d8a3e7b1d"
               - column:
                   name: name
                   value: Картина абстрактная
@@ -1446,7 +1446,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0091')
+                  value: "b8d4e3a3-3a6b-4f4e-5d3f-1a6e9b4f8c2e"
               - column:
                   name: name
                   value: Подушка декоративная
@@ -1461,7 +1461,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0092')
+                  value: "e0a6b5c4-8b7c-4d5f-6e4a-2b7f0c5a9d3f"
               - column:
                   name: name
                   value: Свеча ароматическая
@@ -1480,7 +1480,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0093')
+                  value: "c2e8d7a5-4c8e-4e6a-7f5b-3c8a1d6b0e4a"
               - column:
                   name: name
                   value: Утюг Philips
@@ -1495,7 +1495,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0094')
+                  value: "a4f0b9c6-9d9f-4f7b-8a6c-4d9b2e7c1f5b"
               - column:
                   name: name
                   value: Пылесос Dyson
@@ -1510,7 +1510,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0095')
+                  value: "f6a2c1d7-5e0a-4a8c-9b7d-5c0a3d8b2e6a"
               - column:
                   name: name
                   value: Миксер Bosch
@@ -1525,7 +1525,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0096')
+                  value: "b8d4e3a8-0f1b-4b9d-0a8c-6d1b4e9c3f7b"
               - column:
                   name: name
                   value: Чайник электрический Tefal
