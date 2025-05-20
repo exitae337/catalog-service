@@ -1,0 +1,1537 @@
+databaseChangeLog:
+  - changeSet:
+      id: add_products_with_category_phones
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0001')
+              - column:
+                  name: name
+                  value: Смартфон Galaxy S23
+              - column:
+                  name: price
+                  valueNumeric: "79990.00"
+              - column:
+                  name: category_id
+                  value: PHONES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0002')
+              - column:
+                  name: name
+                  value: Смартфон iPhone 14
+              - column:
+                  name: price
+                  valueNumeric: "99990.00"
+              - column:
+                  name: category_id
+                  value: PHONES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0003')
+              - column:
+                  name: name
+                  value: Смартфон Pixel 7
+              - column:
+                  name: price
+                  valueNumeric: "59990.00"
+              - column:
+                  name: category_id
+                  value: PHONES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0004')
+              - column:
+                  name: name
+                  value: Смартфон Xiaomi 13
+              - column:
+                  name: price
+                  valueNumeric: "64990.00"
+              - column:
+                  name: category_id
+                  value: PHONES
+  - changeSet:
+      id: add_products_with_category_laptops
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0005')
+              - column:
+                  name: name
+                  value: Ноутбук MacBook Air
+              - column:
+                  name: price
+                  valueNumeric: "119990.00"
+              - column:
+                  name: category_id
+                  value: LAPTOPS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0006')
+              - column:
+                  name: name
+                  value: Ноутбук Dell XPS 13
+              - column:
+                  name: price
+                  valueNumeric: "129990.00"
+              - column:
+                  name: category_id
+                  value: LAPTOPS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0007')
+              - column:
+                  name: name
+                  value: Ноутбук Lenovo ThinkPad
+              - column:
+                  name: price
+                  valueNumeric: "109990.00"
+              - column:
+                  name: category_id
+                  value: LAPTOPS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0008')
+              - column:
+                  name: name
+                  value: Ноутбук HP Spectre
+              - column:
+                  name: price
+                  valueNumeric: "139990.00"
+              - column:
+                  name: category_id
+                  value: LAPTOPS
+  - changeSet:
+      id: add_products_with_category_desktops
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0009')
+              - column:
+                  name: name
+                  value: ПК iMac 24
+              - column:
+                  name: price
+                  valueNumeric: "149990.00"
+              - column:
+                  name: category_id
+                  value: DESKTOPS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0010')
+              - column:
+                  name: name
+                  value: ПК Dell OptiPlex
+              - column:
+                  name: price
+                  valueNumeric: "89990.00"
+              - column:
+                  name: category_id
+                  value: DESKTOPS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0011')
+              - column:
+                  name: name
+                  value: ПК HP Pavilion
+              - column:
+                  name: price
+                  valueNumeric: "79990.00"
+              - column:
+                  name: category_id
+                  value: DESKTOPS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0012')
+              - column:
+                  name: name
+                  value: ПК ASUS ROG
+              - column:
+                  name: price
+                  valueNumeric: "159990.00"
+              - column:
+                  name: category_id
+                  value: DESKTOPS
+  - changeSet:
+      id: add_products_with_category_headphones
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0013')
+              - column:
+                  name: name
+                  value: Наушники AirPods Pro
+              - column:
+                  name: price
+                  valueNumeric: "24990.00"
+              - column:
+                  name: category_id
+                  value: HEADPHONES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0014')
+              - column:
+                  name: name
+                  value: Наушники Sony WH-1000XM5
+              - column:
+                  name: price
+                  valueNumeric: "34990.00"
+              - column:
+                  name: category_id
+                  value: HEADPHONES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0015')
+              - column:
+                  name: name
+                  value: Наушники Bose QC45
+              - column:
+                  name: price
+                  valueNumeric: "29990.00"
+              - column:
+                  name: category_id
+                  value: HEADPHONES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0016')
+              - column:
+                  name: name
+                  value: Наушники JBL Live
+              - column:
+                  name: price
+                  valueNumeric: "12990.00"
+              - column:
+                  name: category_id
+                  value: HEADPHONES
+  - changeSet:
+      id: add_products_with_category_tablets
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0017')
+              - column:
+                  name: name
+                  value: Планшет iPad Air
+              - column:
+                  name: price
+                  valueNumeric: "59990.00"
+              - column:
+                  name: category_id
+                  value: TABLETS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0018')
+              - column:
+                  name: name
+                  value: Планшет Samsung Galaxy Tab
+              - column:
+                  name: price
+                  valueNumeric: "49990.00"
+              - column:
+                  name: category_id
+                  value: TABLETS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0019')
+              - column:
+                  name: name
+                  value: Планшет Lenovo Tab
+              - column:
+                  name: price
+                  valueNumeric: "29990.00"
+              - column:
+                  name: category_id
+                  value: TABLETS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0020')
+              - column:
+                  name: name
+                  value: Планшет Huawei MatePad
+              - column:
+                  name: price
+                  valueNumeric: "34990.00"
+              - column:
+                  name: category_id
+                  value: TABLETS
+  - changeSet:
+      id: add_products_with_category_outerwear
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0021')
+              - column:
+                  name: name
+                  value: Куртка зимняя Columbia
+              - column:
+                  name: price
+                  valueNumeric: "19990.00"
+              - column:
+                  name: category_id
+                  value: OUTERWEAR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0022')
+              - column:
+                  name: name
+                  value: Пальто шерстяное Zara
+              - column:
+                  name: price
+                  valueNumeric: "14990.00"
+              - column:
+                  name: category_id
+                  value: OUTERWEAR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0023')
+              - column:
+                  name: name
+                  value: Пуховик The North Face
+              - column:
+                  name: price
+                  valueNumeric: "24990.00"
+              - column:
+                  name: category_id
+                  value: OUTERWEAR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0024')
+              - column:
+                  name: name
+                  value: Ветровка Nike
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: OUTERWEAR
+  - changeSet:
+      id: add_products_with_category_underwear
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0025')
+              - column:
+                  name: name
+                  value: Комплект белья Calvin Klein
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: UNDERWEAR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0026')
+              - column:
+                  name: name
+                  value: Трусы боксеры H&M
+              - column:
+                  name: price
+                  valueNumeric: "1990.00"
+              - column:
+                  name: category_id
+                  value: UNDERWEAR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0027')
+              - column:
+                  name: name
+                  value: Бюстгальтер Victoria's Secret
+              - column:
+                  name: price
+                  valueNumeric: "3990.00"
+              - column:
+                  name: category_id
+                  value: UNDERWEAR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0028')
+              - column:
+                  name: name
+                  value: Комплект белья Intimissimi
+              - column:
+                  name: price
+                  valueNumeric: "5490.00"
+              - column:
+                  name: category_id
+                  value: UNDERWEAR
+  - changeSet:
+      id: add_products_with_category_children_clothes
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0029')
+              - column:
+                  name: name
+                  value: Детский комбинезон Carter's
+              - column:
+                  name: price
+                  valueNumeric: "3990.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_CLOTHES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0030')
+              - column:
+                  name: name
+                  value: Детская куртка Zara Kids
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_CLOTHES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0031')
+              - column:
+                  name: name
+                  value: Детские джинсы H&M
+              - column:
+                  name: price
+                  valueNumeric: "2490.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_CLOTHES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0032')
+              - column:
+                  name: name
+                  value: Детское платье Gap
+              - column:
+                  name: price
+                  valueNumeric: "3490.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_CLOTHES
+  - changeSet:
+      id: add_products_with_category_boots
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0033')
+              - column:
+                  name: name
+                  value: Ботинки Timberland
+              - column:
+                  name: price
+                  valueNumeric: "14990.00"
+              - column:
+                  name: category_id
+                  value: BOOTS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0034')
+              - column:
+                  name: name
+                  value: Ботинки Dr. Martens
+              - column:
+                  name: price
+                  valueNumeric: "16990.00"
+              - column:
+                  name: category_id
+                  value: BOOTS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0035')
+              - column:
+                  name: name
+                  value: Ботинки Ecco
+              - column:
+                  name: price
+                  valueNumeric: "12990.00"
+              - column:
+                  name: category_id
+                  value: BOOTS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0036')
+              - column:
+                  name: name
+                  value: Ботинки Salomon
+              - column:
+                  name: price
+                  valueNumeric: "13990.00"
+              - column:
+                  name: category_id
+                  value: BOOTS
+  - changeSet:
+      id: add_products_with_category_sneakers
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0037')
+              - column:
+                  name: name
+                  value: Кроссовки Nike Air Max
+              - column:
+                  name: price
+                  valueNumeric: "11990.00"
+              - column:
+                  name: category_id
+                  value: SNEAKERS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0038')
+              - column:
+                  name: name
+                  value: Кроссовки Adidas Ultraboost
+              - column:
+                  name: price
+                  valueNumeric: "12990.00"
+              - column:
+                  name: category_id
+                  value: SNEAKERS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0039')
+              - column:
+                  name: name
+                  value: Кроссовки New Balance 574
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: SNEAKERS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0040')
+              - column:
+                  name: name
+                  value: Кроссовки Puma RS-X
+              - column:
+                  name: price
+                  valueNumeric: "10990.00"
+              - column:
+                  name: category_id
+                  value: SNEAKERS
+  - changeSet:
+      id: add_products_with_category_work_shoes
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0041')
+              - column:
+                  name: name
+                  value: Рабочие ботинки Caterpillar
+              - column:
+                  name: price
+                  valueNumeric: "12990.00"
+              - column:
+                  name: category_id
+                  value: WORK_SHOES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0042')
+              - column:
+                  name: name
+                  value: Рабочие ботинки Red Wing
+              - column:
+                  name: price
+                  valueNumeric: "14990.00"
+              - column:
+                  name: category_id
+                  value: WORK_SHOES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0043')
+              - column:
+                  name: name
+                  value: Рабочие ботинки Skechers
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: WORK_SHOES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0044')
+              - column:
+                  name: name
+                  value: Рабочие ботинки Timberland Pro
+              - column:
+                  name: price
+                  valueNumeric: "13990.00"
+              - column:
+                  name: category_id
+                  value: WORK_SHOES
+  - changeSet:
+      id: add_products_with_category_vegetables
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0045')
+              - column:
+                  name: name
+                  value: Картофель молодой
+              - column:
+                  name: price
+                  valueNumeric: "99.90"
+              - column:
+                  name: category_id
+                  value: VEGETABLES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0046')
+              - column:
+                  name: name
+                  value: Помидоры черри
+              - column:
+                  name: price
+                  valueNumeric: "199.90"
+              - column:
+                  name: category_id
+                  value: VEGETABLES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0047')
+              - column:
+                  name: name
+                  value: Огурцы свежие
+              - column:
+                  name: price
+                  valueNumeric: "149.90"
+              - column:
+                  name: category_id
+                  value: VEGETABLES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0048')
+              - column:
+                  name: name
+                  value: Морковь мытая
+              - column:
+                  name: price
+                  valueNumeric: "89.90"
+              - column:
+                  name: category_id
+                  value: VEGETABLES
+  - changeSet:
+      id: add_products_with_category_fruits
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0049')
+              - column:
+                  name: name
+                  value: Яблоки Гренни Смит
+              - column:
+                  name: price
+                  valueNumeric: "149.90"
+              - column:
+                  name: category_id
+                  value: FRUITS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0050')
+              - column:
+                  name: name
+                  value: Бананы спелые
+              - column:
+                  name: price
+                  valueNumeric: "99.90"
+              - column:
+                  name: category_id
+                  value: FRUITS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0051')
+              - column:
+                  name: name
+                  value: Апельсины сладкие
+              - column:
+                  name: price
+                  valueNumeric: "129.90"
+              - column:
+                  name: category_id
+                  value: FRUITS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0052')
+              - column:
+                  name: name
+                  value: Виноград красный
+              - column:
+                  name: price
+                  valueNumeric: "199.90"
+              - column:
+                  name: category_id
+                  value: FRUITS
+  - changeSet:
+      id: add_products_with_category_drinks
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0053')
+              - column:
+                  name: name
+                  value: Вода минеральная Боржоми
+              - column:
+                  name: price
+                  valueNumeric: "99.90"
+              - column:
+                  name: category_id
+                  value: DRINKS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0054')
+              - column:
+                  name: name
+                  value: Сок яблочный Добрый
+              - column:
+                  name: price
+                  valueNumeric: "129.90"
+              - column:
+                  name: category_id
+                  value: DRINKS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0055')
+              - column:
+                  name: name
+                  value: Кола Coca-Cola
+              - column:
+                  name: price
+                  valueNumeric: "89.90"
+              - column:
+                  name: category_id
+                  value: DRINKS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0056')
+              - column:
+                  name: name
+                  value: Чай зеленый Lipton
+              - column:
+                  name: price
+                  valueNumeric: "149.90"
+              - column:
+                  name: category_id
+                  value: DRINKS
+  - changeSet:
+      id: add_products_with_category_pastry
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0057')
+              - column:
+                  name: name
+                  value: Круассан с шоколадом
+              - column:
+                  name: price
+                  valueNumeric: "99.90"
+              - column:
+                  name: category_id
+                  value: PASTRY
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0058')
+              - column:
+                  name: name
+                  value: Пирожное эклер
+              - column:
+                  name: price
+                  valueNumeric: "129.90"
+              - column:
+                  name: category_id
+                  value: PASTRY
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0059')
+              - column:
+                  name: name
+                  value: Булочка с изюмом
+              - column:
+                  name: price
+                  valueNumeric: "79.90"
+              - column:
+                  name: category_id
+                  value: PASTRY
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0060')
+              - column:
+                  name: name
+                  value: Печенье овсяное
+              - column:
+                  name: price
+                  valueNumeric: "149.90"
+              - column:
+                  name: category_id
+                  value: PASTRY
+  - changeSet:
+      id: add_products_with_category_computer_furniture
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0061')
+              - column:
+                  name: name
+                  value: Стол компьютерный IKEA
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: COMPUTER_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0062')
+              - column:
+                  name: name
+                  value: Кресло офисное Ergonomic
+              - column:
+                  name: price
+                  valueNumeric: "14990.00"
+              - column:
+                  name: category_id
+                  value: COMPUTER_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0063')
+              - column:
+                  name: name
+                  value: Полка для монитора
+              - column:
+                  name: price
+                  valueNumeric: "3990.00"
+              - column:
+                  name: category_id
+                  value: COMPUTER_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0064')
+              - column:
+                  name: name
+                  value: Стойка для ноутбука
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: COMPUTER_FURNITURE
+  - changeSet:
+      id: add_products_with_category_garden_furniture
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0065')
+              - column:
+                  name: name
+                  value: Садовый стол Keter
+              - column:
+                  name: price
+                  valueNumeric: "14990.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0066')
+              - column:
+                  name: name
+                  value: Садовый стул пластиковый
+              - column:
+                  name: price
+                  valueNumeric: "3990.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0067')
+              - column:
+                  name: name
+                  value: Шезлонг раскладной
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0068')
+              - column:
+                  name: name
+                  value: Скамейка садовая деревянная
+              - column:
+                  name: price
+                  valueNumeric: "12990.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_FURNITURE
+  - changeSet:
+      id: add_products_with_category_tables_and_chairs
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0069')
+              - column:
+                  name: name
+                  value: Обеденный стол деревянный
+              - column:
+                  name: price
+                  valueNumeric: "19990.00"
+              - column:
+                  name: category_id
+                  value: TABLES_AND_CHAIRS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0070')
+              - column:
+                  name: name
+                  value: Стул кухонный мягкий
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: TABLES_AND_CHAIRS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0071')
+              - column:
+                  name: name
+                  value: Стол журнальный стеклянный
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: TABLES_AND_CHAIRS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0072')
+              - column:
+                  name: name
+                  value: Стул барный металлический
+              - column:
+                  name: price
+                  valueNumeric: "6990.00"
+              - column:
+                  name: category_id
+                  value: TABLES_AND_CHAIRS
+  - changeSet:
+      id: add_products_with_category_upholstered_furniture
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0073')
+              - column:
+                  name: name
+                  value: Диван угловой кожаный
+              - column:
+                  name: price
+                  valueNumeric: "49990.00"
+              - column:
+                  name: category_id
+                  value: UPHOLSTERED_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0074')
+              - column:
+                  name: name
+                  value: Кресло мягкое тканевое
+              - column:
+                  name: price
+                  valueNumeric: "19990.00"
+              - column:
+                  name: category_id
+                  value: UPHOLSTERED_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0075')
+              - column:
+                  name: name
+                  value: Диван-кровать раскладной
+              - column:
+                  name: price
+                  valueNumeric: "39990.00"
+              - column:
+                  name: category_id
+                  value: UPHOLSTERED_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0076')
+              - column:
+                  name: name
+                  value: Пуф тканевый
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: UPHOLSTERED_FURNITURE
+  - changeSet:
+      id: add_products_with_category_children_furniture
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0077')
+              - column:
+                  name: name
+                  value: Детская кровать с бортиками
+              - column:
+                  name: price
+                  valueNumeric: "14990.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0078')
+              - column:
+                  name: name
+                  value: Детский стол для рисования
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0079')
+              - column:
+                  name: name
+                  value: Детский стул регулируемый
+              - column:
+                  name: price
+                  valueNumeric: "3990.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_FURNITURE
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0080')
+              - column:
+                  name: name
+                  value: Детский шкаф для игрушек
+              - column:
+                  name: price
+                  valueNumeric: "9990.00"
+              - column:
+                  name: category_id
+                  value: CHILDREN_FURNITURE
+  - changeSet:
+      id: add_products_with_category_dishes
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0081')
+              - column:
+                  name: name
+                  value: Набор тарелок керамических
+              - column:
+                  name: price
+                  valueNumeric: "2990.00"
+              - column:
+                  name: category_id
+                  value: DISHES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0082')
+              - column:
+                  name: name
+                  value: Набор столовых приборов
+              - column:
+                  name: price
+                  valueNumeric: "1990.00"
+              - column:
+                  name: category_id
+                  value: DISHES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0083')
+              - column:
+                  name: name
+                  value: Чайный сервиз фарфоровый
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: DISHES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0084')
+              - column:
+                  name: name
+                  value: Набор бокалов для вина
+              - column:
+                  name: price
+                  valueNumeric: "3990.00"
+              - column:
+                  name: category_id
+                  value: DISHES
+  - changeSet:
+      id: add_products_with_category_garden_supplies
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0085')
+              - column:
+                  name: name
+                  value: Лопата садовая Fiskars
+              - column:
+                  name: price
+                  valueNumeric: "1990.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_SUPPLIES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0086')
+              - column:
+                  name: name
+                  value: Секатор садовый
+              - column:
+                  name: price
+                  valueNumeric: "1490.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_SUPPLIES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0087')
+              - column:
+                  name: name
+                  value: Шланг поливочный 20 м
+              - column:
+                  name: price
+                  valueNumeric: "2990.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_SUPPLIES
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0088')
+              - column:
+                  name: name
+                  value: Грабли садовые металлические
+              - column:
+                  name: price
+                  valueNumeric: "1290.00"
+              - column:
+                  name: category_id
+                  value: GARDEN_SUPPLIES
+  - changeSet:
+      id: add_products_with_category_decor_and_interior
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0089')
+              - column:
+                  name: name
+                  value: Ваза декоративная керамическая
+              - column:
+                  name: price
+                  valueNumeric: "2990.00"
+              - column:
+                  name: category_id
+                  value: DECOR_AND_INTERIOR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0090')
+              - column:
+                  name: name
+                  value: Картина абстрактная
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: DECOR_AND_INTERIOR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0091')
+              - column:
+                  name: name
+                  value: Подушка декоративная
+              - column:
+                  name: price
+                  valueNumeric: "1990.00"
+              - column:
+                  name: category_id
+                  value: DECOR_AND_INTERIOR
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0092')
+              - column:
+                  name: name
+                  value: Свеча ароматическая
+              - column:
+                  name: price
+                  valueNumeric: "1490.00"
+              - column:
+                  name: category_id
+                  value: DECOR_AND_INTERIOR
+  - changeSet:
+      id: add_products_with_category_household_items
+      author: yluttsev
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0093')
+              - column:
+                  name: name
+                  value: Утюг Philips
+              - column:
+                  name: price
+                  valueNumeric: "4990.00"
+              - column:
+                  name: category_id
+                  value: HOUSEHOLD_ITEMS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0094')
+              - column:
+                  name: name
+                  value: Пылесос Dyson
+              - column:
+                  name: price
+                  valueNumeric: "29990.00"
+              - column:
+                  name: category_id
+                  value: HOUSEHOLD_ITEMS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0095')
+              - column:
+                  name: name
+                  value: Миксер Bosch
+              - column:
+                  name: price
+                  valueNumeric: "3990.00"
+              - column:
+                  name: category_id
+                  value: HOUSEHOLD_ITEMS
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: uuid('f7b2a4e0-3c1a-4f2b-9b8c-6d7e8f9a0096')
+              - column:
+                  name: name
+                  value: Чайник электрический Tefal
+              - column:
+                  name: price
+                  valueNumeric: "3490.00"
+              - column:
+                  name: category_id
+                  value: HOUSEHOLD_ITEMS

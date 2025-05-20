@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changelog/V1/changesets/02-init-product-image-table.yaml
   - include:
       file: db/changelog/V1/changesets/03-init-outbox-table.yaml
+  - include:
+      file: db/changelog/V1/changesets/04-add-products.yaml
