@@ -4,6 +4,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+k8s/catalog-service/secret.yaml
+
 ### STS ###
 .apt_generated
 .classpath
