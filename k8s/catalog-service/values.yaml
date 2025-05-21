@@ -1,0 +1,31 @@
+replicaCount:
+
+image:
+  tag:
+  version:
+
+service:
+  name:
+  port:
+
+properties:
+  minio:
+    endpoint:
+    port:
+    username:
+    password:
+    bucket:
+  datasource:
+    url:
+    username:
+    password:
+  kafka:
+    servers:
+  redis:
+    host:
+    port:
+    ttl:
+  app:
+    name:
+    categoryService:
+      name:
