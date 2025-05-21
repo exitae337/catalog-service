@@ -1,0 +1,135 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: catalog-pg
+spec:
+  serviceName: catalog-postgres-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-postgres
+  template:
+    metadata:
+      labels:
+        app: catalog-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:17
+          envFrom:
+            - secretRef:
+                name: catalog-postgres-secret
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: catalog-postgres-data
+  volumeClaimTemplates:
+    - metadata:
+        name: catalog-postgres-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 10Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: catalog-redis
+spec:
+  serviceName: catalog-redis-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-redis
+  template:
+    metadata:
+      labels:
+        app: catalog-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:8
+          command: [ "sh", "-c", "redis-server --requirepass \"$REDIS_PASSWORD\"" ]
+          envFrom:
+            - secretRef:
+                name: catalog-redis-secret
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: catalog-redis-data
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: catalog-redis-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: catalog-minio
+spec:
+  serviceName: catalog-minio-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-minio
+  template:
+    metadata:
+      labels:
+        app: catalog-minio
+    spec:
+      containers:
+        - name: minio
+          image: minio/minio:latest
+          args:
+            - server
+            - /data
+          ports:
+            - containerPort: 9000
+          env:
+            - name: MINIO_ACCESS_KEY
+              value: "minioadmin"
+            - name: MINIO_SECRET_KEY
+              value: "minioadmin"
+          volumeMounts:
+            - name: catalog-minio-data
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: catalog-minio-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 10Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-app
+  template:
+    metadata:
+      labels:
+        app: catalog-app
+    spec:
+      containers:
+        - name: catalog-app
+          image: floomyz/catalog-service:1.0.0
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: catalog-app-secret
+            - configMapRef:
+                name: catalog-app-config
