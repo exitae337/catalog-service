@@ -21,4 +21,4 @@ spec:
             - secretRef:
                 name: "{{ .Release.Name }}-secret"
             - configMapRef:
-                name: catalog-app-config
+                name: "{{ .Release.Name }}-config"
