@@ -56,10 +56,10 @@ public class ProductImageService {
                             .object(imageName)
                             .stream(file.getInputStream(), file.getSize(), -1)
                             .build());
+                    imageUrls.add(imageName);
                 } catch (Exception e) {
                     log.error("Error when saving an image to MinIO: {}", e.getMessage());
                 }
-                imageUrls.add(imageName);
             }
         }
         return imageUrls;
