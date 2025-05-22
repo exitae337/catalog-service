@@ -3,6 +3,7 @@ package ru.example.catalogservice.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> createProduct(@RequestPart("body") CreateProductRequest productRequest,
                                               @RequestPart(value = "images", required = false) List<MultipartFile> images) {
         UUID createdProductId = productService.createProduct(productRequest, images);
