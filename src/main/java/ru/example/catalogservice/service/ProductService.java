@@ -1,8 +1,11 @@
 package ru.example.catalogservice.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.example.catalogservice.exception.NotFoundException;
 import ru.example.catalogservice.feign.ProductCategoryClient;
 import ru.example.catalogservice.model.entity.Product;
+import ru.example.catalogservice.model.entity.enums.OutboxEventType;
 import ru.example.catalogservice.model.mapper.ProductMapper;
 import ru.example.catalogservice.model.payload.kafka.NewProductEvent;
 import ru.example.catalogservice.model.payload.product.CreateProductRequest;
@@ -22,6 +26,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Validated
@@ -29,9 +34,10 @@ public class ProductService {
 
     private final ProductRepository productRepository;
     private final ProductCategoryClient productCategoryClient;
-    private final ProductOutboxService productOutboxService;
+    private final OutboxService outboxService;
     private final ProductMapper productMapper;
     private final ProductImageService productImageService;
+    private final ObjectMapper objectMapper;
 
     @CacheEvict(value = "products_with_category", key = "#createProductRequest.categoryId()")
     @Transactional
@@ -43,15 +49,23 @@ public class ProductService {
                     .price(createProductRequest.price())
                     .categoryId(createProductRequest.categoryId())
                     .build());
-            productOutboxService.createEvent(new NewProductEvent(product.getId(), product.getName(), product.getPrice()));
+
+            NewProductEvent newProductEvent = new NewProductEvent(product.getId(), product.getName(), product.getPrice());
+            try {
+                outboxService.create(OutboxEventType.NEW_PRODUCT, objectMapper.writeValueAsString(newProductEvent));
+            } catch (JsonProcessingException e) {
+                log.error("Ошибка сериализации outbox события: {}. Сообщение: {}", newProductEvent.id(), e.getMessage());
+            }
+
             if (images != null && !images.isEmpty()) {
                 CompletableFuture
                         .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
                         .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls));
             }
+
             return product.getId();
         }
-        throw new NotFoundException("Category with ID: '%s' not found".formatted(createProductRequest.categoryId()));
+        throw new NotFoundException("Категория с ID: '%s' не найдена".formatted(createProductRequest.categoryId()));
     }
 
     @Cacheable(value = "products", key = "#id")
@@ -69,7 +83,7 @@ public class ProductService {
 
     public Product getEntityById(UUID id) {
         return productRepository.findById(id).orElseThrow(
-                () -> new NotFoundException("Product with ID: '%s' not found".formatted(id))
+                () -> new NotFoundException("Товар с ID: '%s' не найден".formatted(id))
         );
     }
 }
