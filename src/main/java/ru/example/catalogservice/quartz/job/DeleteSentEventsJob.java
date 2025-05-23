@@ -4,17 +4,17 @@ import lombok.RequiredArgsConstructor;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.springframework.stereotype.Component;
-import ru.example.catalogservice.model.payload.kafka.enums.ProductOutboxStatus;
-import ru.example.catalogservice.service.ProductOutboxService;
+import ru.example.catalogservice.model.entity.enums.OutboxEventStatus;
+import ru.example.catalogservice.service.OutboxService;
 
 @Component
 @RequiredArgsConstructor
 public class DeleteSentEventsJob implements Job {
 
-    private final ProductOutboxService productOutboxService;
+    private final OutboxService outboxService;
 
     @Override
     public void execute(JobExecutionContext context) {
-        productOutboxService.deleteAllByStatus(ProductOutboxStatus.SENT);
+        outboxService.deleteEventsByStatus(OutboxEventStatus.SENT);
     }
 }
