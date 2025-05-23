@@ -7,15 +7,19 @@ import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockPart;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import ru.example.catalogservice.config.SecurityConfig;
 import ru.example.catalogservice.exception.NotFoundException;
 import ru.example.catalogservice.model.payload.product.CreateProductRequest;
 import ru.example.catalogservice.model.payload.product.ProductPayload;
+import ru.example.catalogservice.security.JwtAccessAuthenticationProvider;
 import ru.example.catalogservice.service.ProductService;
 
 import java.math.BigDecimal;
@@ -34,6 +38,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(ProductController.class)
+@Import(SecurityConfig.class)
+@MockitoBean(types = {JwtAccessAuthenticationProvider.class})
 class ProductControllerTests {
 
     @Autowired
@@ -46,10 +52,11 @@ class ProductControllerTests {
     private ObjectMapper objectMapper;
 
     @Test
-    void testCreateProduct_WhenPayloadCorrect_shouldReturnStatusCode201() throws Exception {
+    @WithMockUser(roles = "ADMIN")
+    void testCreateProduct_WhenPayloadCorrectAndHaveAccessRights_shouldReturnStatusCode201() throws Exception {
         CreateProductRequest createProductRequest = new CreateProductRequest("TEST_PRODUCT", BigDecimal.valueOf(100), "TEST_CATEGORY");
         MockPart requestPart = new MockPart("body", objectMapper.writeValueAsBytes(createProductRequest));
-        requestPart.getHeaders().set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
+        requestPart.getHeaders().setContentType(MediaType.APPLICATION_JSON);
 
         when(productService.createProduct(createProductRequest, null)).thenReturn(UUID.randomUUID());
 
@@ -59,7 +66,8 @@ class ProductControllerTests {
     }
 
     @Test
-    void testCreateProduct_WhenPayloadWithErrors_shouldReturnStatusCode400() throws Exception {
+    @WithMockUser(roles = "ADMIN")
+    void testCreateProduct_WhenPayloadWithErrorsAndHaveAccessRights_shouldReturnStatusCode403() throws Exception {
         CreateProductRequest createProductRequest = new CreateProductRequest("", BigDecimal.valueOf(100), "");
         MockPart requestPart = new MockPart("body", objectMapper.writeValueAsBytes(createProductRequest));
         requestPart.getHeaders().set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
@@ -76,6 +84,25 @@ class ProductControllerTests {
     }
 
     @Test
+    @WithMockUser
+    void testCreateProduct_WhenNoAccessRights_shouldReturnStatusCode403() throws Exception {
+        CreateProductRequest createProductRequest = new CreateProductRequest("", BigDecimal.valueOf(100), "");
+        MockPart requestPart = new MockPart("body", objectMapper.writeValueAsBytes(createProductRequest));
+        requestPart.getHeaders().set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
+
+        ConstraintViolation<Object> violation = mock(ConstraintViolation.class);
+        when(violation.getMessage()).thenReturn("Validation error");
+        ConstraintViolationException exception = new ConstraintViolationException(Set.of(violation));
+
+        when(productService.createProduct(createProductRequest, null)).thenThrow(exception);
+
+        mockMvc.perform(multipart("/products")
+                        .part(requestPart))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser
     void testGetProductById_WhenProductExists_shouldReturnStatusCode200() throws Exception {
         ProductPayload product = new ProductPayload(UUID.randomUUID(), "Product", BigDecimal.ZERO, "Category", null);
         when(productService.getProductById(any())).thenReturn(product);
@@ -85,6 +112,7 @@ class ProductControllerTests {
     }
 
     @Test
+    @WithMockUser
     void testGetProductById_WhenProductNotExists_shouldReturnStatusCode404() throws Exception {
         when(productService.getProductById(any())).thenThrow(NotFoundException.class);
 
@@ -93,6 +121,7 @@ class ProductControllerTests {
     }
 
     @Test
+    @WithMockUser
     void testGetProductsByCategory_WhenProductsExists_shouldReturnStatusCode200AndNotEmptyBody() throws Exception {
         String category = "Category";
         List<ProductPayload> products = IntStream.range(0, 5)
@@ -109,6 +138,7 @@ class ProductControllerTests {
     }
 
     @Test
+    @WithMockUser
     void testGetProductsByCategory_WhenProductsNotExists_shouldReturnStatusCode200AndEmptyArray() throws Exception {
         String category = "Category";
         when(productService.getProductsByCategoryId(any())).thenReturn(Collections.emptyList());
