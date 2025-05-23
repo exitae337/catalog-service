@@ -9,5 +9,5 @@ data:
   SPRING_DATA_REDIS_HOST: "{{ .Values.properties.redis.host }}"
   SPRING_DATA_REDIS_PORT: "{{ .Values.properties.redis.port }}"
   SPRING_APPLICATION_NAME: "{{ .Values.properties.app.name }}"
-  SERVICE_CATEGORY_NAME: "{{ .Values.properties.app.categoryService.name }}"
+  SERVICE_CATEGORY_SERVICE_NAME: "{{ .Values.properties.app.categoryService.name }}"
   MINIO_BUCKET: "{{ .Values.properties.minio.bucket }}"
