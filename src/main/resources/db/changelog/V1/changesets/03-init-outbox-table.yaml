@@ -6,10 +6,10 @@ databaseChangeLog:
         - onFail: MARK_RAN
           not:
             tableExists:
-              tableName: create_product_outbox
+              tableName: outbox
       changes:
         - createTable:
-            tableName: product_outbox
+            tableName: outbox
             columns:
               - column:
                   name: id
@@ -17,28 +17,26 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: product_id
-                  type: uuid
+                  name: event_type
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
                   name: payload
-                  type: jsonb
+                  type: json
                   constraints:
                     nullable: false
               - column:
-                  name: status
+                  name: event_status
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
                   name: created_at
                   type: timestamp
-                  defaultValueComputed: CURRENT_TIMESTAMP
+                  defaultValueComputed: current_timestamp
                   constraints:
                     nullable: false
               - column:
-                  name: updated_at
+                  name: modified_at
                   type: timestamp
-                  constraints:
-                    nullable: false
