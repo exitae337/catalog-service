@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "productCategoryClient", url = "${service.category.name}")
+@FeignClient(name = "productCategoryClient", url = "${service.category-service.name}")
 public interface ProductCategoryClient {
 
     @GetMapping("/categories/{categoryId}")
