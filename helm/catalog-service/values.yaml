@@ -4,10 +4,6 @@ image:
   tag:
   version:
 
-service:
-  name:
-  port:
-
 properties:
   minio:
     endpoint:
@@ -29,3 +25,4 @@ properties:
     name:
     categoryService:
       name:
+    port:
