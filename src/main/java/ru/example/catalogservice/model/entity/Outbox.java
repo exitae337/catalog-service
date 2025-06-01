@@ -24,7 +24,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-@Table(name = "product_outbox")
+@Table(name = "outbox")
 @Getter
 @Setter
 @AllArgsConstructor

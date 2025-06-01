@@ -7,3 +7,5 @@ databaseChangeLog:
       file: db/changelog/V1/changesets/03-init-outbox-table.yaml
   - include:
       file: db/changelog/V1/changesets/04-add-products.yaml
+  - include:
+      file: db/changelog/V1/changesets/liquibase.quartz.init.xml

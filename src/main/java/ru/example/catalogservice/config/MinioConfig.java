@@ -3,7 +3,6 @@ package ru.example.catalogservice.config;
 import io.minio.BucketExistsArgs;
 import io.minio.MakeBucketArgs;
 import io.minio.MinioClient;
-import io.minio.SetBucketPolicyArgs;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -41,29 +40,12 @@ public class MinioConfig {
                     .bucket(bucket)
                     .build());
             if (!bucketExists) {
-                String bucketPolicy = """
-                        {
-                            "Version": "2012-10-17",
-                            "Statement": [
-                                {
-                                    "Effect": "Allow",
-                                    "Principal": "*",
-                                    "Action": "s3:GetObject",
-                                    "Resource": "arn:aws:s3:::%s/*"
-                                }
-                            ]
-                        }
-                        """.formatted(bucket);
                 minioClient.makeBucket(MakeBucketArgs.builder()
                         .bucket(bucket)
                         .build());
-                minioClient.setBucketPolicy(SetBucketPolicyArgs.builder()
-                        .bucket(bucket)
-                        .config(bucketPolicy)
-                        .build());
             }
         } catch (Exception e) {
-            log.error("MinIO error: {}", e.getMessage());
+            log.error("Ошибка MinIO: {}", e.getMessage());
         }
     }
 }

@@ -1,13 +1,17 @@
 package ru.example.catalogservice.service;
 
+import io.minio.GetObjectArgs;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
+import io.minio.errors.ErrorResponseException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import ru.example.catalogservice.exception.NotFoundException;
+import ru.example.catalogservice.exception.ServerErrorException;
 import ru.example.catalogservice.model.entity.Product;
 import ru.example.catalogservice.model.entity.ProductImage;
 import ru.example.catalogservice.repository.ProductImageRepository;
@@ -27,11 +31,11 @@ public class ProductImageService {
     @Value("${product.max-images}")
     private Integer maxImages;
 
-    @Value("${minio.endpoint}")
-    private String endpoint;
-
     @Value("${minio.bucket}")
     private String bucket;
+
+    @Value("${service.gateway.name}")
+    private String gatewayServiceName;
 
     public void attachImagesToProduct(Product product, List<String> imagesUrls) {
         List<ProductImage> productImages = imagesUrls.stream()
@@ -65,9 +69,29 @@ public class ProductImageService {
         return imageUrls;
     }
 
+    public byte[] getImageByFileName(String fileName) {
+        try {
+            return minioClient.getObject(GetObjectArgs.builder()
+                            .bucket(bucket)
+                            .object(fileName)
+                            .build())
+                    .readAllBytes();
+        } catch (ErrorResponseException e) {
+            if ("NoSuchKey".equals(e.errorResponse().code())) {
+                log.error("Изображение '{}' не найдено", fileName);
+                throw new NotFoundException("Изображение '%s' не найдено".formatted(fileName));
+            }
+            log.error("Ошибка MinIO. Код ошибки: {}. Сообщение: {}", e.errorResponse().code(), e.getMessage());
+            throw new ServerErrorException("Ошибка сервера");
+        } catch (Exception e) {
+            log.error("Ошибка MinIO. Сообщение: {}", e.getMessage());
+            throw new ServerErrorException("Ошибка сервера");
+        }
+    }
+
     public List<String> getImagesUrls(List<ProductImage> productImages) {
         return productImages.stream()
-                .map(productImage -> "%s/%s/%s".formatted(endpoint, bucket, productImage.getFileName()))
+                .map(productImage -> "%s/images/%s".formatted(gatewayServiceName, productImage.getFileName()))
                 .toList();
     }
 
