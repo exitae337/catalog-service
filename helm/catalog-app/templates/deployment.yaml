@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Chart.Name }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: "{{ .Chart.Name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Chart.Name }}"
+    spec:
+      containers:
+        - name: "{{ .Chart.Name }}"
+          image: "{{ .Values.image.name }}:{{.Values.image.tag}}"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: "{{ .Chart.Name }}-secret"
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.secret.name }}"
+                  key: "{{ .Values.secret.keys.postgresUsername }}"
+
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.secret.name }}"
+                  key: "{{ .Values.secret.keys.postgresPassword }}"
+
+            - name: SPRING_DATA_REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.secret.name }}"
+                  key: "{{ .Values.secret.keys.redisPassword }}"
+
+            - name: MINIO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.secret.name }}"
+                  key: "{{ .Values.secret.keys.minioUsername }}"
+
+            - name: MINIO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.secret.name }}"
+                  key: "{{ .Values.secret.keys.minioPassword }}"

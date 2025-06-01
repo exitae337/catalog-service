@@ -1,0 +1,43 @@
+replicaCount: 1
+
+image:
+  name:
+  tag:
+
+secret:
+  name: catalog-app-secret
+  keys:
+    postgresUsername: "postgresUsername"
+    postgresPassword: "postgresPassword"
+    redisPassword: "redisPassword"
+    minioUsername: "minioUsername"
+    minioPassword: "minioPassword"
+
+properties:
+  minio:
+    endpoint: minio
+    port: 9000
+    bucket: images
+  datasource:
+    host: postgresql
+    port: 5432
+    database: catalog_app
+  kafka:
+    servers: kafka.kafka.svc.cluster.local:9092
+  redis:
+    host: redis-master
+    port: 6379
+    ttl: 1d
+  services:
+    category:
+      name: category-app
+    gateway:
+      name: api-gateway
+  application:
+    name: catalog-app
+    port: 8080
+    eureka:
+      hostname: catalog-app-service.catalog-app.svc.cluster.local
+  eureka:
+    host: eureka-server-service.eureka-server.svc.cluster.local
+    port: 8761

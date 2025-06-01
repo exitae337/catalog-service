@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Chart.Name }}-config"
+data:
+  SPRING_APPLICATION_NAME: "{{ .Values.properties.application.name }}"
+  EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: "http://{{ .Values.properties.eureka.host }}:{{ .Values.properties.eureka.port }}/eureka/"
+  EUREKA_INSTANCE_HOSTNAME: "{{ .Values.properties.application.eureka.hostname }}"
+  EUREKA_INSTANCE_NON_SECURE_PORT: "{{ .Values.properties.application.port }}"
+  SERVICE_CATEGORY_SERVICE_NAME: "{{ .Values.properties.services.category.name }}"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://{{ .Values.properties.datasource.host }}:{{ .Values.properties.datasource.port }}/{{ .Values.properties.datasource.database }}"
+  SPRING_KAFKA_BOOTSTRAP_SERVERS: "{{ .Values.properties.kafka.servers }}"
+  SPRING_CACHE_REDIS_TIME_TO_LIVE: "{{ .Values.properties.redis.ttl }}"
+  SPRING_DATA_REDIS_HOST: "{{ .Values.properties.redis.host }}"
+  SPRING_DATA_REDIS_PORT: "{{ .Values.properties.redis.port }}"
+  MINIO_ENDPOINT: "http://{{ .Values.properties.minio.endpoint }}:{{ .Values.properties.minio.port }}"
+  MINIO_BUCKET: "{{ .Values.properties.minio.bucket }}"
+  SERVICE_GATEWAY_NAME: "{{ .Values.properties.services.gateway.name }}"
