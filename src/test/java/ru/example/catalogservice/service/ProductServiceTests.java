@@ -1,5 +1,6 @@
 package ru.example.catalogservice.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.example.catalogservice.exception.NotFoundException;
 import ru.example.catalogservice.feign.ProductCategoryClient;
 import ru.example.catalogservice.model.entity.Product;
+import ru.example.catalogservice.model.entity.enums.OutboxEventType;
 import ru.example.catalogservice.model.mapper.ProductMapperImpl;
 import ru.example.catalogservice.model.payload.product.CreateProductRequest;
 import ru.example.catalogservice.repository.ProductRepository;
@@ -29,6 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -40,6 +43,7 @@ import static org.mockito.Mockito.when;
                 ProductService.class,
         }
 )
+@MockitoBean(types = {ObjectMapper.class})
 class ProductServiceTests {
 
     @MockitoBean
@@ -49,7 +53,7 @@ class ProductServiceTests {
     private ProductCategoryClient productCategoryClient;
 
     @MockitoBean
-    private ProductOutboxService productOutboxService;
+    private OutboxService outboxService;
 
     @MockitoBean
     private ProductImageService productImageService;
@@ -70,10 +74,10 @@ class ProductServiceTests {
 
         when(productCategoryClient.categoryExists(any())).thenReturn(responseEntity);
         when(productRepository.save(any())).thenReturn(product);
-        doNothing().when(productOutboxService).createEvent(any());
+        doNothing().when(outboxService).create(any(OutboxEventType.class), anyString());
 
         assertEquals(product.getId(), productService.createProduct(request, null));
-        verify(productOutboxService).createEvent(any());
+        verify(outboxService).create(any(), any());
         verify(productImageService, never()).saveImagesInFileStorage(anyList());
         verify(productImageService, never()).attachImagesToProduct(any(), anyList());
     }
@@ -103,10 +107,10 @@ class ProductServiceTests {
 
         when(productCategoryClient.categoryExists(any())).thenReturn(responseEntity);
         when(productRepository.save(any())).thenReturn(product);
-        doNothing().when(productOutboxService).createEvent(any());
+        doNothing().when(outboxService).create(any(OutboxEventType.class), anyString());
 
         assertEquals(product.getId(), productService.createProduct(request, List.of(new MultipartFileMock())));
-        verify(productOutboxService).createEvent(any());
+        verify(outboxService).create(any(OutboxEventType.class), any());
         verify(productImageService).saveImagesInFileStorage(anyList());
         verify(productImageService).attachImagesToProduct(any(), anyList());
     }
