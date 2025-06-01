@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.web.multipart.MultipartFile;
 import ru.example.catalogservice.exception.NotFoundException;
@@ -43,7 +44,7 @@ import static org.mockito.Mockito.when;
                 ProductService.class,
         }
 )
-@MockitoBean(types = {ObjectMapper.class})
+@ActiveProfiles("test")
 class ProductServiceTests {
 
     @MockitoBean
@@ -60,6 +61,9 @@ class ProductServiceTests {
 
     @Autowired
     private ProductService productService;
+
+    @MockitoBean
+    private ObjectMapper objectMapper;
 
     @Test
     void testCreateProduct_WhenCategoryExistsAndImagesEmpty_ShouldReturnCreatedProductIdWithoutCreationImages() {
