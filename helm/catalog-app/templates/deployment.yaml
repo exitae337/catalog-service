@@ -18,8 +18,8 @@ spec:
           ports:
             - containerPort: 8080
           envFrom:
-            - secretRef:
-                name: "{{ .Chart.Name }}-secret"
+            - configMapRef:
+                name: "{{ .Chart.Name }}-config"
           env:
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
