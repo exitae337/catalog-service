@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import ru.example.catalogservice.exception.NotFoundException;
 import ru.example.catalogservice.exception.ServerErrorException;
@@ -37,6 +38,7 @@ public class ProductImageService {
     @Value("${service.gateway.name}")
     private String gatewayServiceName;
 
+    @Transactional
     public void attachImagesToProduct(Product product, List<String> imagesUrls) {
         List<ProductImage> productImages = imagesUrls.stream()
                 .map(imageUrl -> ProductImage.builder()
