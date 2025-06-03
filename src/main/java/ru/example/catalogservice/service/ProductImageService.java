@@ -57,6 +57,7 @@ public class ProductImageService {
                 try {
                     minioClient.putObject(PutObjectArgs.builder()
                             .object(imageName)
+                            .bucket(bucket)
                             .stream(file.getInputStream(), file.getSize(), -1)
                             .build());
                     imageUrls.add(imageName);
