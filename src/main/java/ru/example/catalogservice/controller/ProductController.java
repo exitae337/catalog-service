@@ -28,7 +28,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping
+    @GetMapping(params = {"page_number", "page_size"})
     public PageResponse<ProductPayload> getProductsPage(@RequestParam(value = "page_number", defaultValue = "0") int pageNumber,
                                                         @RequestParam(value = "page_size", defaultValue = "10") int pageSize) {
         return productService.getProductsPage(pageNumber, pageSize);
@@ -47,7 +47,7 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
-    @GetMapping
+    @GetMapping(params = {"category"})
     public List<ProductPayload> getProductsByCategoryId(@RequestParam("category") String categoryId) {
         return productService.getProductsByCategoryId(categoryId);
     }
