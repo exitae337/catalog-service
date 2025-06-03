@@ -11,6 +11,9 @@ public record PageResponse<T>(
 
         @JsonProperty("page_size")
         int pageSize,
+
+        @JsonProperty("total_pages")
+        int totalPages,
         List<T> items
 ) {
 }

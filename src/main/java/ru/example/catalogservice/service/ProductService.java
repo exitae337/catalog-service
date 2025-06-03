@@ -89,6 +89,7 @@ public class ProductService {
         return new PageResponse<>(
                 products.getNumber(),
                 products.getNumberOfElements(),
+                products.getTotalPages(),
                 products.getContent()
                         .stream()
                         .map(p -> productMapper.mapToProductPayload(p, productImageService.getImagesUrls(p.getImages())))
