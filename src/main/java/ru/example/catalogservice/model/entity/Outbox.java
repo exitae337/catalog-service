@@ -1,5 +1,6 @@
 package ru.example.catalogservice.model.entity;
 
+import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -17,6 +18,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Type;
 import ru.example.catalogservice.model.entity.enums.OutboxEventStatus;
 import ru.example.catalogservice.model.entity.enums.OutboxEventType;
 
@@ -41,6 +43,7 @@ public class Outbox {
     @Enumerated(EnumType.STRING)
     private OutboxEventType eventType;
 
+    @Type(JsonType.class)
     @Column(name = "payload")
     private String payload;
 
