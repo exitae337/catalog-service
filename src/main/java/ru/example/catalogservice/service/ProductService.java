@@ -27,7 +27,6 @@ import ru.example.catalogservice.repository.ProductRepository;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @Service
@@ -61,10 +60,8 @@ public class ProductService {
             }
 
             if (images != null && !images.isEmpty()) {
-                CompletableFuture
-                        .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
-                        .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls))
-                        .join();
+                List<String> imageUrls = productImageService.saveImagesInFileStorage(images);
+                productImageService.attachImagesToProduct(product, imageUrls);
             }
 
             return product.getId();
