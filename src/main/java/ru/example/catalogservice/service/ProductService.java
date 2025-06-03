@@ -63,7 +63,8 @@ public class ProductService {
             if (images != null && !images.isEmpty()) {
                 CompletableFuture
                         .supplyAsync(() -> productImageService.saveImagesInFileStorage(images))
-                        .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls));
+                        .thenAccept(imageUrls -> productImageService.attachImagesToProduct(product, imageUrls))
+                        .join();
             }
 
             return product.getId();
