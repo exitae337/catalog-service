@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,16 +28,12 @@ public class ProductImageService {
 
     private final ProductImageRepository productImageRepository;
     private final MinioClient minioClient;
-    private final DiscoveryClient discoveryClient;
 
     @Value("${product.max-images}")
     private Integer maxImages;
 
     @Value("${minio.bucket}")
     private String bucket;
-
-    @Value("${service.gateway.name}")
-    private String gatewayServiceName;
 
     @Transactional
     public void attachImagesToProduct(Product product, List<String> imagesUrls) {
@@ -95,14 +89,9 @@ public class ProductImageService {
     }
 
     public List<String> getImagesUrls(List<ProductImage> productImages) {
-        List<ServiceInstance> apiGatewayInstances = discoveryClient.getInstances(gatewayServiceName);
-        if (!apiGatewayInstances.isEmpty()) {
-            return productImages.stream()
-                    .map(productImage -> "%s/images/%s".formatted(apiGatewayInstances.get(0).getUri(),
-                            productImage.getFileName()))
-                    .toList();
-        }
-        throw new NotFoundException("Api Gateway не найден");
+        return productImages.stream()
+                .map(productImage -> "/images/%s".formatted(productImage.getFileName()))
+                .toList();
     }
 
     private boolean isImage(MultipartFile file) {
