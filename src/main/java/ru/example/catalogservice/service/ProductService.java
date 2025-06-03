@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +19,7 @@ import ru.example.catalogservice.feign.ProductCategoryClient;
 import ru.example.catalogservice.model.entity.Product;
 import ru.example.catalogservice.model.entity.enums.OutboxEventType;
 import ru.example.catalogservice.model.mapper.ProductMapper;
+import ru.example.catalogservice.model.payload.PageResponse;
 import ru.example.catalogservice.model.payload.kafka.NewProductEvent;
 import ru.example.catalogservice.model.payload.product.CreateProductRequest;
 import ru.example.catalogservice.model.payload.product.ProductPayload;
@@ -79,6 +82,18 @@ public class ProductService {
         return productRepository.findByCategoryId(categoryId).stream()
                 .map(product -> productMapper.mapToProductPayload(product, productImageService.getImagesUrls(product.getImages())))
                 .toList();
+    }
+
+    public PageResponse<ProductPayload> getProductsPage(int pageNumber, int pageSize) {
+        Page<Product> products = productRepository.findAll(PageRequest.of(pageNumber, pageSize));
+        return new PageResponse<>(
+                products.getNumber(),
+                products.getNumberOfElements(),
+                products.getContent()
+                        .stream()
+                        .map(p -> productMapper.mapToProductPayload(p, productImageService.getImagesUrls(p.getImages())))
+                        .toList()
+        );
     }
 
     public Product getEntityById(UUID id) {

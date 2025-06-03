@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import ru.example.catalogservice.model.payload.PageResponse;
 import ru.example.catalogservice.model.payload.product.CreateProductRequest;
 import ru.example.catalogservice.model.payload.product.ProductPayload;
 import ru.example.catalogservice.service.ProductService;
@@ -26,6 +27,12 @@ import java.util.UUID;
 public class ProductController {
 
     private final ProductService productService;
+
+    @GetMapping
+    public PageResponse<ProductPayload> getProductsPage(@RequestParam(value = "page_number", defaultValue = "0") int pageNumber,
+                                                        @RequestParam(value = "page_size", defaultValue = "10") int pageSize) {
+        return productService.getProductsPage(pageNumber, pageSize);
+    }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PreAuthorize("hasRole('ADMIN')")
