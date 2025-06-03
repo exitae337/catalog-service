@@ -98,8 +98,7 @@ public class ProductImageService {
         List<ServiceInstance> apiGatewayInstances = discoveryClient.getInstances(gatewayServiceName);
         if (!apiGatewayInstances.isEmpty()) {
             return productImages.stream()
-                    .map(productImage -> "http://%s:%d/images/%s".formatted(apiGatewayInstances.get(0).getHost(),
-                            apiGatewayInstances.get(0).getPort(),
+                    .map(productImage -> "%s/images/%s".formatted(apiGatewayInstances.get(0).getUri(),
                             productImage.getFileName()))
                     .toList();
         }
