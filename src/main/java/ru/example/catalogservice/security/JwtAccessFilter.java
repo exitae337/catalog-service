@@ -45,8 +45,8 @@ public class JwtAccessFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        return Optional.ofNullable(securedEndpoints.get(request.getContextPath()))
-                .map(method -> method.matches(request.getMethod()))
-                .orElse(false);
+        return Optional.ofNullable(securedEndpoints.get(request.getRequestURI()))
+                .map(method -> !method.matches(request.getMethod()))
+                .orElse(true);
     }
 }
